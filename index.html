@@ -1,0 +1,2222 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>Portofolio Premium | INDRA</title>
+    <meta name="description" content="Portofolio premium INDRA - Web Developer, UI/UX Designer, Full Stack Engineer" />
+    <link rel="canonical" href="https://portofolio-anda.com" />
+    <meta property="og:title" content="Portofolio Premium | INDRA" />
+    <meta property="og:description" content="Portofolio profesional dengan sentuhan premium dan teknologi terkini." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <style>
+        /* ============================
+           ROOT & RESET PREMIUM
+           ============================ */
+        :root {
+            --font: 'Inter', system-ui, -apple-system, sans-serif;
+            --bg: #f1f5f9;
+            --bg-card: rgba(255, 255, 255, 0.65);
+            --bg-card-solid: #ffffff;
+            --text: #0b1120;
+            --text-secondary: #334155;
+            --text-muted: #64748b;
+            --primary: #7c3aed;
+            --primary-dark: #6d28d9;
+            --primary-light: #ede9fe;
+            --primary-glow: rgba(124, 58, 237, 0.35);
+            --gold: #f59e0b;
+            --gold-light: #fbbf24;
+            --border: rgba(226, 232, 240, 0.5);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.10);
+            --radius: 20px;
+            --radius-sm: 12px;
+            --transition: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            --max-width: 1200px;
+            --header-height: 72px;
+            --gradient-hero: linear-gradient(135deg, #0b1120 0%, #1e1b4b 100%);
+        }
+        [data-theme="dark"] {
+            --bg: #0b1120;
+            --bg-card: rgba(30, 41, 59, 0.7);
+            --bg-card-solid: #1e293b;
+            --text: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --border: rgba(51, 65, 85, 0.5);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.6);
+            --primary-light: #2d1b4e;
+            --gradient-hero: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            transition: background var(--transition), color var(--transition);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+        a:hover {
+            color: var(--gold);
+        }
+        ul {
+            list-style: none;
+        }
+        button,
+        input,
+        textarea {
+            font: inherit;
+            border: none;
+            outline: none;
+            background: none;
+            color: inherit;
+        }
+        button {
+            cursor: pointer;
+        }
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 clamp(20px, 4vw, 48px);
+        }
+
+        /* ============================
+           UTILITY PREMIUM
+           ============================ */
+        .section-padding {
+            padding: clamp(60px, 10vw, 120px) 0;
+        }
+        .section-title {
+            font-size: clamp(2rem, 4.5vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 8px;
+            line-height: 1.15;
+            background: linear-gradient(135deg, var(--text), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        [data-theme="dark"] .section-title {
+            background: linear-gradient(135deg, #f1f5f9, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .section-subtitle {
+            font-size: clamp(1rem, 1.5vw, 1.15rem);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 48px;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .badge {
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            background: var(--primary-light);
+            color: var(--primary);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(4px);
+        }
+        .badge-gold {
+            background: var(--gold);
+            color: #0b1120;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: clamp(0.9rem, 1vw, 1rem);
+            transition: all var(--transition);
+            border: 2px solid transparent;
+            background: linear-gradient(135deg, var(--primary), var(--gold));
+            color: #fff;
+            box-shadow: 0 4px 20px var(--primary-glow);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--gold), var(--primary));
+            opacity: 0;
+            transition: opacity var(--transition);
+            border-radius: inherit;
+        }
+        .btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 40px var(--primary-glow);
+            color: #fff;
+        }
+        .btn:hover::after {
+            opacity: 1;
+        }
+        .btn span {
+            position: relative;
+            z-index: 1;
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border-color: var(--border);
+            box-shadow: none;
+        }
+        .btn-outline::after {
+            display: none;
+        }
+        .btn-outline:hover {
+            background: var(--bg-card);
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        .btn-sm {
+            padding: 8px 20px;
+            font-size: 0.85rem;
+        }
+
+        /* ============================
+           GLASS CARD
+           ============================ */
+        .glass {
+            background: var(--bg-card);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: all var(--transition);
+        }
+        .glass:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        /* ============================
+           HEADER PREMIUM
+           ============================ */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: var(--header-height);
+            background: var(--bg-card);
+            backdrop-filter: blur(20px) saturate(200%);
+            -webkit-backdrop-filter: blur(20px) saturate(200%);
+            border-bottom: 1px solid var(--border);
+            transition: all var(--transition);
+        }
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: clamp(1.2rem, 2vw, 1.4rem);
+            letter-spacing: -0.02em;
+            color: var(--text);
+        }
+        .logo svg {
+            width: clamp(32px, 3vw, 40px);
+            height: clamp(32px, 3vw, 40px);
+            fill: var(--primary);
+        }
+        .logo span {
+            color: var(--gold);
+        }
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .nav-menu a {
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-weight: 500;
+            font-size: clamp(0.8rem, 0.9vw, 0.9rem);
+            color: var(--text-secondary);
+            transition: all var(--transition);
+        }
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--text);
+            background: var(--bg-card-solid);
+        }
+        .nav-menu a.active {
+            color: var(--primary);
+            background: var(--primary-light);
+        }
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+        .nav-actions button {
+            width: 40px;
+            height: 40px;
+            border-radius: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: background var(--transition);
+            color: var(--text-secondary);
+        }
+        .nav-actions button:hover {
+            background: var(--bg-card-solid);
+            color: var(--text);
+        }
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: var(--bg-card-solid);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            padding: 2px 12px;
+            transition: all var(--transition);
+        }
+        .search-box input {
+            padding: 6px 8px;
+            font-size: clamp(0.75rem, 0.8vw, 0.85rem);
+            background: transparent;
+            width: clamp(80px, 12vw, 160px);
+            transition: width 0.3s;
+        }
+        .search-box input:focus {
+            width: clamp(120px, 18vw, 220px);
+        }
+        .search-box button {
+            font-size: 0.95rem;
+            padding: 4px;
+            color: var(--text-muted);
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            padding: 6px;
+            background: none;
+        }
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 2.5px;
+            background: var(--text);
+            border-radius: 10px;
+            transition: all var(--transition);
+            transform-origin: center;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        .nav-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition);
+        }
+        .nav-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .nav-mobile {
+            position: fixed;
+            top: 0;
+            right: -320px;
+            width: min(300px, 80%);
+            height: 100%;
+            z-index: 1001;
+            background: var(--bg-card-solid);
+            backdrop-filter: blur(20px);
+            padding: 28px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            box-shadow: var(--shadow-lg);
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+        }
+        .nav-mobile.open {
+            right: 0;
+        }
+        .nav-mobile a {
+            padding: 12px 16px;
+            border-radius: var(--radius-sm);
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all var(--transition);
+        }
+        .nav-mobile a:hover,
+        .nav-mobile a.active {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        /* ============================
+           HERO PREMIUM
+           ============================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: calc(var(--header-height) + 30px) 0 60px;
+            background: var(--gradient-hero);
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 30% 50%, rgba(124, 58, 237, 0.2), transparent 70%),
+                radial-gradient(ellipse at 70% 80%, rgba(245, 158, 11, 0.15), transparent 50%);
+            pointer-events: none;
+        }
+        #particles-canvas {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(30px, 5vw, 60px);
+            align-items: center;
+        }
+        .hero-content h1 {
+            font-size: clamp(2.4rem, 7vw, 4.8rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.05;
+            margin-bottom: 12px;
+        }
+        .hero-content h1 span {
+            background: linear-gradient(135deg, #a78bfa, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-content .typing-wrapper {
+            font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+            font-weight: 600;
+            color: #94a3b8;
+            margin-bottom: 16px;
+            min-height: 2.8rem;
+        }
+        .hero-content .typing-wrapper .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.2em;
+            background: var(--gold);
+            margin-left: 4px;
+            vertical-align: text-bottom;
+            animation: blink 0.9s step-end infinite;
+        }
+        @keyframes blink {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+        .hero-content p {
+            color: #cbd5e1;
+            max-width: 480px;
+            margin-bottom: 32px;
+            font-size: clamp(1rem, 1.2vw, 1.1rem);
+            line-height: 1.7;
+        }
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 32px;
+        }
+        .hero-buttons .btn-outline {
+            border-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+        .hero-buttons .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+        .hero-stats {
+            display: flex;
+            gap: clamp(24px, 4vw, 40px);
+            flex-wrap: wrap;
+            margin-bottom: 28px;
+        }
+        .hero-stats .stat .number {
+            font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+            font-weight: 800;
+            color: #fff;
+        }
+        .hero-stats .stat .label {
+            font-size: clamp(0.75rem, 0.8vw, 0.85rem);
+            color: #94a3b8;
+            letter-spacing: 0.04em;
+        }
+        .hero-social {
+            display: flex;
+            gap: 14px;
+        }
+        .hero-social a {
+            width: 48px;
+            height: 48px;
+            border-radius: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.3rem;
+            transition: all var(--transition);
+        }
+        .hero-social a:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 30px var(--primary-glow);
+        }
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .hero-image .avatar {
+            width: clamp(180px, 28vw, 360px);
+            aspect-ratio: 1/1;
+            border-radius: 100%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+            background: var(--bg-card-solid);
+            transition: transform 0.6s;
+        }
+        .hero-image .avatar:hover {
+            transform: scale(1.02);
+        }
+        .hero-image .blob {
+            position: absolute;
+            width: 130%;
+            height: 130%;
+            border-radius: 60% 40% 50% 50% / 45% 55% 45% 55%;
+            background: radial-gradient(circle at 30% 30%, rgba(124, 58, 237, 0.25), transparent 70%);
+            animation: blobFloat 14s ease-in-out infinite;
+            z-index: -1;
+        }
+        @keyframes blobFloat {
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1) rotate(0deg);
+            }
+            33% {
+                transform: translate(12px, -24px) scale(1.06) rotate(5deg);
+            }
+            66% {
+                transform: translate(-12px, 18px) scale(0.94) rotate(-5deg);
+            }
+        }
+
+        /* ============================
+           ABOUT
+           ============================ */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(30px, 5vw, 60px);
+            align-items: start;
+        }
+        .about-image img {
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+        }
+        .about-text h3 {
+            font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            font-size: clamp(0.95rem, 1vw, 1.05rem);
+        }
+        .about-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 24px;
+            margin: 16px 0 24px;
+        }
+        .about-info .item {
+            display: flex;
+            gap: 8px;
+            font-size: clamp(0.9rem, 0.95vw, 1rem);
+        }
+        .about-info .item strong {
+            font-weight: 600;
+            color: var(--text);
+        }
+        .about-info .item span {
+            color: var(--text-secondary);
+        }
+        .timeline-item {
+            display: flex;
+            gap: 20px;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+            flex-wrap: wrap;
+        }
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+        .timeline-item .year {
+            font-weight: 700;
+            color: var(--primary);
+            min-width: 90px;
+        }
+
+        /* ============================
+           SKILLS
+           ============================ */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+            gap: 24px;
+            margin-top: 20px;
+        }
+        .skill-card {
+            padding: 28px 24px;
+            transition: all var(--transition);
+        }
+        .skill-card:hover {
+            transform: translateY(-6px) scale(1.02);
+        }
+        .skill-card .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: clamp(0.95rem, 1vw, 1rem);
+        }
+        .skill-card .skill-bar {
+            height: 8px;
+            background: var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .skill-card .skill-bar .fill {
+            height: 100%;
+            border-radius: 10px;
+            background: linear-gradient(90deg, var(--primary), var(--gold));
+            width: 0%;
+            transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ============================
+           PORTFOLIO
+           ============================ */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+            gap: 30px;
+        }
+        .portfolio-item {
+            overflow: hidden;
+            transition: all var(--transition);
+        }
+        .portfolio-item:hover {
+            transform: translateY(-8px);
+        }
+        .portfolio-item .thumb {
+            aspect-ratio: 16/10;
+            object-fit: cover;
+            width: 100%;
+            background: var(--border);
+        }
+        .portfolio-item .body {
+            padding: 24px;
+        }
+        .portfolio-item .body h4 {
+            font-size: clamp(1.1rem, 1.2vw, 1.2rem);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .portfolio-item .body .category {
+            font-size: 0.8rem;
+            color: var(--gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .portfolio-item .body p {
+            color: var(--text-secondary);
+            font-size: clamp(0.9rem, 0.95vw, 1rem);
+            margin: 8px 0 12px;
+        }
+        .portfolio-item .body .tech span {
+            padding: 4px 14px;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+        .portfolio-item .body .links {
+            display: flex;
+            gap: 14px;
+            margin-top: 16px;
+        }
+
+        /* ============================
+           GALERI
+           ============================ */
+        .gallery-filter {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+        .gallery-filter button {
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            transition: all var(--transition);
+            color: var(--text-secondary);
+            backdrop-filter: blur(4px);
+        }
+        .gallery-filter button.active,
+        .gallery-filter button:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+            box-shadow: 0 4px 20px var(--primary-glow);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+            gap: 18px;
+        }
+        .gallery-item {
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            aspect-ratio: 1/1;
+            background: var(--border);
+            transition: transform 0.3s;
+        }
+        .gallery-item:hover {
+            transform: scale(1.03);
+            z-index: 2;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        .gallery-item::after {
+            content: '🔍';
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(4px);
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 2rem;
+            color: #fff;
+        }
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .lightbox.open {
+            display: flex;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: var(--radius-sm);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+            object-fit: contain;
+        }
+        .lightbox .close-lightbox {
+            position: absolute;
+            top: 24px;
+            right: 32px;
+            font-size: 2.8rem;
+            color: #fff;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: transform 0.3s;
+        }
+        .lightbox .close-lightbox:hover {
+            transform: rotate(90deg);
+        }
+
+        /* ============================
+           SERTIFIKAT
+           ============================ */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+            gap: 28px;
+        }
+        .cert-card {
+            padding: 32px 24px;
+            text-align: center;
+        }
+        .cert-card .icon {
+            font-size: 3.2rem;
+            margin-bottom: 12px;
+        }
+        .cert-card h4 {
+            font-weight: 700;
+            margin-bottom: 4px;
+            font-size: clamp(1rem, 1.1vw, 1.1rem);
+        }
+        .cert-card .publisher {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .cert-card .year {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 4px 16px;
+            border-radius: 100px;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        /* ============================
+           BLOG
+           ============================ */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+            gap: 30px;
+        }
+        .blog-card {
+            overflow: hidden;
+        }
+        .blog-card .thumb {
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            width: 100%;
+            background: var(--border);
+        }
+        .blog-card .body {
+            padding: 24px;
+        }
+        .blog-card .body .tag {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            background: var(--primary-light);
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        .blog-card .body h4 {
+            font-size: clamp(1rem, 1.1vw, 1.1rem);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .blog-card .body p {
+            color: var(--text-secondary);
+            font-size: clamp(0.9rem, 0.95vw, 1rem);
+            margin-bottom: 12px;
+        }
+        .blog-card .body .meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ============================
+           TESTIMONIALS
+           ============================ */
+        .testimonial-slider {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius);
+        }
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.6s ease;
+        }
+        .testimonial-slide {
+            min-width: 100%;
+            padding: clamp(24px, 4vw, 40px);
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+        .testimonial-slide .stars {
+            color: var(--gold);
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+        .testimonial-slide blockquote {
+            font-size: clamp(1rem, 1.1vw, 1.1rem);
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+        .testimonial-slide .author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .testimonial-slide .author img {
+            width: 56px;
+            height: 56px;
+            border-radius: 100%;
+            object-fit: cover;
+        }
+        .testimonial-slide .author .name {
+            font-weight: 700;
+        }
+        .testimonial-slide .author .role {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .testimonial-controls {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-top: 24px;
+        }
+        .testimonial-controls button {
+            width: 48px;
+            height: 48px;
+            border-radius: 100%;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            font-size: 1.4rem;
+            transition: all var(--transition);
+            backdrop-filter: blur(4px);
+        }
+        .testimonial-controls button:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+            box-shadow: 0 4px 20px var(--primary-glow);
+        }
+
+        /* ============================
+           FAQ
+           ============================ */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .faq-item {
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            background: var(--bg-card);
+            backdrop-filter: blur(8px);
+        }
+        .faq-item .question {
+            padding: 20px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-size: clamp(0.95rem, 1vw, 1.05rem);
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+            transition: background var(--transition);
+        }
+        .faq-item .question:hover {
+            background: var(--primary-light);
+        }
+        .faq-item .question .icon {
+            font-size: 1.6rem;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+        .faq-item .question .icon.open {
+            transform: rotate(45deg);
+        }
+        .faq-item .answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            padding: 0 28px;
+            color: var(--text-secondary);
+        }
+        .faq-item .answer.open {
+            max-height: 300px;
+            padding: 0 28px 24px;
+        }
+
+        /* ============================
+           CONTACT
+           ============================ */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(30px, 5vw, 60px);
+        }
+        .contact-info .item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 18px 24px;
+            background: var(--bg-card);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(8px);
+            margin-bottom: 14px;
+        }
+        .contact-info .item .icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 100%;
+            background: var(--primary-light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        .contact-info .item .text strong {
+            display: block;
+            font-weight: 700;
+        }
+        .contact-info .item .text span {
+            color: var(--text-secondary);
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            padding: clamp(24px, 4vw, 40px);
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+        .contact-form label {
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            padding: 14px 18px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            background: var(--bg);
+            transition: border var(--transition);
+            font-size: 0.95rem;
+            width: 100%;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px var(--primary-glow);
+        }
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+        .contact-form .captcha {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+        .contact-form .captcha span {
+            font-weight: 700;
+            font-size: 1.2rem;
+            background: var(--primary-light);
+            padding: 6px 16px;
+            border-radius: 8px;
+            color: var(--primary);
+        }
+        .contact-form .captcha input {
+            width: 80px;
+            text-align: center;
+        }
+
+        /* ============================
+           FOOTER PREMIUM
+           ============================ */
+        .footer {
+            background: var(--bg-card-solid);
+            border-top: 1px solid var(--border);
+            padding: 60px 0 28px;
+            margin-top: 20px;
+            backdrop-filter: blur(8px);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: clamp(24px, 4vw, 48px);
+            margin-bottom: 40px;
+        }
+        .footer-brand p {
+            color: var(--text-secondary);
+            font-size: clamp(0.9rem, 1vw, 1rem);
+            max-width: 300px;
+            margin-top: 8px;
+        }
+        .footer h4 {
+            font-weight: 700;
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+        .footer ul a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            transition: color var(--transition);
+        }
+        .footer ul a:hover {
+            color: var(--gold);
+        }
+        .footer .newsletter {
+            display: flex;
+            gap: 10px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+        .footer .newsletter input {
+            flex: 1;
+            min-width: 140px;
+            padding: 12px 18px;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            font-size: 0.9rem;
+        }
+        .footer .newsletter button {
+            padding: 12px 24px;
+            border-radius: 100px;
+            background: linear-gradient(135deg, var(--primary), var(--gold));
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            transition: all var(--transition);
+        }
+        .footer .newsletter button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px var(--primary-glow);
+        }
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: clamp(0.75rem, 0.8vw, 0.85rem);
+            color: var(--text-muted);
+        }
+
+        .back-top {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 900;
+            width: 52px;
+            height: 52px;
+            border-radius: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--gold));
+            color: #fff;
+            font-size: 1.6rem;
+            box-shadow: 0 4px 24px var(--primary-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+        .back-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .back-top:hover {
+            transform: translateY(-6px) scale(1.06);
+            box-shadow: 0 12px 40px var(--primary-glow);
+        }
+
+        /* ============================
+           SCROLL REVEAL
+           ============================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.9s ease, transform 0.9s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.9s ease, transform 0.9s ease;
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.9s ease, transform 0.9s ease;
+        }
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ============================
+           RESPONSIVE
+           ============================ */
+        @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-buttons,
+            .hero-stats,
+            .hero-social {
+                justify-content: center;
+            }
+            .hero-image .avatar {
+                width: clamp(200px, 35vw, 300px);
+            }
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .hero {
+                min-height: auto;
+                padding-top: calc(var(--header-height) + 30px);
+            }
+            .hero-content h1 {
+                font-size: clamp(2rem, 8vw, 2.8rem);
+            }
+            .about-info {
+                grid-template-columns: 1fr;
+            }
+            .skills-grid,
+            .portfolio-grid,
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer .newsletter {
+                flex-direction: column;
+            }
+            .contact-form {
+                padding: 20px;
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+            .hero-content .typing-wrapper {
+                font-size: 1rem;
+            }
+            .hero-buttons .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .btn {
+                padding: 12px 24px;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+            .nav-actions .search-box input {
+                width: 80px;
+            }
+            .nav-actions .search-box input:focus {
+                width: 110px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header" role="banner">
+        <div class="container">
+            <a href="#" class="logo" aria-label="Beranda">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                Portofolio<span>.</span>
+            </a>
+            <nav class="nav-menu" role="navigation">
+                <a href="#hero" class="active">Beranda</a>
+                <a href="#about">Tentang</a>
+                <a href="#skills">Skill</a>
+                <a href="#portfolio">Portofolio</a>
+                <a href="#gallery">Galeri</a>
+                <a href="#blog">Blog</a>
+                <a href="#contact">Kontak</a>
+            </nav>
+            <div class="nav-actions">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Cari..." />
+                    <button id="searchButton">🔍</button>
+                </div>
+                <button id="theme-toggle">🌙</button>
+                <button id="lang-toggle">🌐</button>
+                <a href="#" class="btn btn-sm" download>📄 CV</a>
+                <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Nav -->
+    <div class="nav-overlay" id="navOverlay"></div>
+    <nav class="nav-mobile" id="navMobile">
+        <div class="logo" style="margin-bottom:20px;">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="var(--primary)"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            Portofolio<span>.</span>
+        </div>
+        <a href="#hero" class="active">Beranda</a>
+        <a href="#about">Tentang</a>
+        <a href="#skills">Skill</a>
+        <a href="#portfolio">Portofolio</a>
+        <a href="#gallery">Galeri</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Kontak</a>
+        <div class="nav-actions" style="margin-top:16px;border-top:1px solid var(--border);padding-top:16px;flex-wrap:wrap;">
+            <button id="theme-toggle-mobile">🌙</button>
+            <button id="lang-toggle-mobile">🌐</button>
+            <a href="#" class="btn btn-sm" download>📄 CV</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero" class="hero">
+        <canvas id="particles-canvas" aria-hidden="true"></canvas>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Halo, Saya <span>Indra</span></h1>
+                <div class="typing-wrapper">
+                    <span id="typing-text"></span><span class="cursor"></span>
+                </div>
+                <p>Pengembang web &amp; desainer UI/UX yang menciptakan pengalaman digital premium dan berkinerja tinggi.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn"><span>Hubungi Saya</span></a>
+                    <a href="#portfolio" class="btn btn-outline">Lihat Karya</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat"><span class="number" data-count="5">0</span><span class="label">+ Tahun</span></div>
+                    <div class="stat"><span class="number" data-count="48">0</span><span class="label">+ Proyek</span></div>
+                    <div class="stat"><span class="number" data-count="32">0</span><span class="label">+ Klien Puas</span></div>
+                </div>
+                <div class="hero-social">
+                    <a href="#" aria-label="GitHub">🐙</a>
+                    <a href="#" aria-label="LinkedIn">🔗</a>
+                    <a href="#" aria-label="Twitter">🐦</a>
+                    <a href="#" aria-label="YouTube">▶️</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="blob"></div>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%231e293b'/%3E%3Ccircle cx='200' cy='200' r='160' fill='%237c3aed' opacity='0.2'/%3E%3Ctext x='200' y='215' font-family='Inter' font-size='48' font-weight='700' fill='%23f1f5f9' text-anchor='middle'%3EINDRA%3C/text%3E%3C/svg%3E"
+                alt="Indra" class="avatar" loading="lazy" />
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image reveal-left">
+                    <img src="00000000a55c7208bae44493ec12f746.png" alt="Tentang" loading="lazy" />
+                </div>
+                <div class="about-text reveal-right">
+                    <span class="badge">Tentang Saya</span>
+                    <h3>Membangun Solusi Digital yang Berdampak</h3>
+                    <p>Full-stack developer dengan passion menciptakan antarmuka intuitif dan pengalaman pengguna yang luar biasa. Kombinasi keahlian teknis dan desain untuk produk berkualitas.</p>
+                    <p>Teknologi yang memanusiakan – setiap proyek fokus pada kebutuhan pengguna dan tujuan bisnis.</p>
+                    <div class="about-info">
+                        <div class="item"><strong>Nama:</strong><span>INDRA</span></div>
+                        <div class="item"><strong>Email:</strong><span>cyrbut404@gmail.com</span></div>
+                        <div class="item"><strong>Lokasi:</strong><span>Indonesia</span></div>
+                        <div class="item"><strong>Pendidikan:</strong><span>Informatika</span></div>
+                        <div class="item"><strong>Pengalaman:</strong><span>5+ Tahun</span></div>
+                        <div class="item"><strong>Status:</strong><span>Tersedia</span></div>
+                    </div>
+                    <a href="#contact" class="btn"><span>Hubungi Saya</span></a>
+                    <div class="timeline">
+                        <div class="timeline-item"><span class="year">2021 — Sekarang</span><span>Full Stack Developer · Tech Corp</span></div>
+                        <div class="timeline-item"><span class="year">2018 — 2021</span><span>Frontend Developer · Creative Studio</span></div>
+                        <div class="timeline-item"><span class="year">2016 — 2018</span><span>Junior Web Developer · Startup XYZ</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section-padding" style="background:var(--bg);">
+        <div class="container">
+            <div class="text-center">
+                <span class="badge">Keahlian</span>
+                <h2 class="section-title">Teknologi &amp; Tools</h2>
+                <p class="section-subtitle">Teknologi yang saya kuasai untuk membangun solusi end-to-end.</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card glass reveal"><div class="skill-header"><span>HTML &amp; CSS</span><span>95%</span></div><div class="skill-bar"><div class="fill" data-width="95"></div></div></div>
+                <div class="skill-card glass reveal"><div class="skill-header"><span>JavaScript / TypeScript</span><span>88%</span></div><div class="skill-bar"><div class="fill" data-width="88"></div></div></div>
+                <div class="skill-card glass reveal"><div class="skill-header"><span>React &amp; Next.js</span><span>85%</span></div><div class="skill-bar"><div class="fill" data-width="85"></div></div></div>
+                <div class="skill-card glass reveal"><div class="skill-header"><span>Node.js / Express</span><span>80%</span></div><div class="skill-bar"><div class="fill" data-width="80"></div></div></div>
+                <div class="skill-card glass reveal"><div class="skill-header"><span>Python / Django</span><span>75%</span></div><div class="skill-bar"><div class="fill" data-width="75"></div></div></div>
+                <div class="skill-card glass reveal"><div class="skill-header"><span>UI/UX Design</span><span>82%</span></div><div class="skill-bar"><div class="fill" data-width="82"></div></div></div>
+                <div class="skill-card glass reveal"><div class="skill-header"><span>Database (SQL / NoSQL)</span><span>78%</span></div><div class="skill-bar"><div class="fill" data-width="78"></div></div></div>
+                <div class="skill-card glass reveal"><div class="skill-header"><span>Cloud &amp; DevOps</span><span>70%</span></div><div class="skill-bar"><div class="fill" data-width="70"></div></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="section-padding">
+        <div class="container">
+            <div class="text-center">
+                <span class="badge">Karya</span>
+                <h2 class="section-title">Proyek Unggulan</h2>
+                <p class="section-subtitle">Proyek yang telah saya kerjakan untuk klien dan perusahaan.</p>
+            </div>
+            <div class="portfolio-grid">
+                <article class="portfolio-item glass reveal">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='375' viewBox='0 0 600 375'%3E%3Crect width='600' height='375' fill='%231e293b'/%3E%3Crect x='20' y='20' width='560' height='335' rx='12' fill='%237c3aed' opacity='0.1'/%3E%3Ctext x='300' y='195' font-family='Inter' font-size='26' font-weight='700' fill='%23f1f5f9' text-anchor='middle'%3EProject 1%3C/text%3E%3C/svg%3E" alt="Proyek 1" class="thumb" loading="lazy" />
+                    <div class="body">
+                        <span class="category">Web App</span>
+                        <h4>Platform E-Learning</h4>
+                        <p>Platform belajar interaktif dengan live class, kuis, dan sertifikasi.</p>
+                        <div class="tech"><span>React</span><span>Node.js</span><span>MongoDB</span></div>
+                        <div class="links"><a href="#">Demo →</a><a href="#">Source Code</a></div>
+                    </div>
+                </article>
+                <article class="portfolio-item glass reveal">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='375' viewBox='0 0 600 375'%3E%3Crect width='600' height='375' fill='%231e293b'/%3E%3Crect x='20' y='20' width='560' height='335' rx='12' fill='%23f59e0b' opacity='0.1'/%3E%3Ctext x='300' y='195' font-family='Inter' font-size='26' font-weight='700' fill='%23f1f5f9' text-anchor='middle'%3EProject 2%3C/text%3E%3C/svg%3E" alt="Proyek 2" class="thumb" loading="lazy" />
+                    <div class="body">
+                        <span class="category">Mobile App</span>
+                        <h4>Healthcare Tracker</h4>
+                        <p>Aplikasi kesehatan untuk memantau aktivitas, nutrisi, dan konsultasi.</p>
+                        <div class="tech"><span>React Native</span><span>Firebase</span></div>
+                        <div class="links"><a href="#">Demo →</a><a href="#">Source Code</a></div>
+                    </div>
+                </article>
+                <article class="portfolio-item glass reveal">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='375' viewBox='0 0 600 375'%3E%3Crect width='600' height='375' fill='%231e293b'/%3E%3Crect x='20' y='20' width='560' height='335' rx='12' fill='%230ea5e9' opacity='0.1'/%3E%3Ctext x='300' y='195' font-family='Inter' font-size='26' font-weight='700' fill='%23f1f5f9' text-anchor='middle'%3EProject 3%3C/text%3E%3C/svg%3E" alt="Proyek 3" class="thumb" loading="lazy" />
+                    <div class="body">
+                        <span class="category">Dashboard</span>
+                        <h4>Analytics Dashboard</h4>
+                        <p>Dashboard real-time untuk monitoring data bisnis dengan visualisasi interaktif.</p>
+                        <div class="tech"><span>Vue.js</span><span>D3.js</span><span>Supabase</span></div>
+                        <div class="links"><a href="#">Demo →</a><a href="#">Source Code</a></div>
+                    </div>
+                </article>
+            </div>
+            <div class="text-center" style="margin-top:40px;">
+                <a href="#" class="btn btn-outline">Lihat Semua Proyek</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERI -->
+    <section id="gallery" class="section-padding" style="background:var(--bg);">
+        <div class="container">
+            <div class="text-center">
+                <span class="badge">Galeri</span>
+                <h2 class="section-title">Karya Visual</h2>
+                <p class="section-subtitle">Koleksi gambar dari proyek dan aktivitas saya.</p>
+            </div>
+            <div class="gallery-filter">
+                <button class="active" data-filter="all">Semua</button>
+                <button data-filter="web">Web</button>
+                <button data-filter="design">Design</button>
+                <button data-filter="mobile">Mobile</button>
+            </div>
+            <div class="gallery-grid" id="galleryGrid">
+                <div class="gallery-item" data-category="web"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%237c3aed' opacity='0.15'/%3E%3Ctext x='200' y='210' font-family='Inter' font-size='24' font-weight='700' fill='%23f1f5f9' text-anchor='middle'%3EWeb%3C/text%3E%3C/svg%3E" alt="Web 1" loading="lazy" /></div>
+                <div class="gallery-item" data-category="design"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23f59e0b' opacity='0.15'/%3E%3Ctext x='200' y='210' font-family='Inter' font-size='24' font-weight='700' fill='%23f1f5f9' text-anchor='middle'%3EDesign%3C/text%3E%3C/svg%3E" alt="Design 1" loading="lazy" /></div>
+                <div class="gallery-item" data-category="mobile"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%230ea5e9' opacity='0.15'/%3E%3Ctext x='200' y='210' font-family='Inter' font-size='24' font-weight='700' fill='%23f1f5f9' text-anchor='middle'%3EMobile%3C/text%3E%3C/svg%3E" alt="Mobile 1" loading="lazy" /></div>
+                <div class="gallery-item" data-category="web"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23ef4444' opacity='0.15'/%3E%3Ctext x='200' y='210' font-family='Inter' font-size='24' font-weight='700' fill='%23f1f5f9' text-anchor='middle'%3EWeb2%3C/text%3E%3C/svg%3E" alt="Web 2" loading="lazy" /></div>
+                <div class="gallery-item" data-category="design"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23a78bfa' opacity='0.15'/%3E%3Ctext x='200' y='210' font-family='Inter' font-size='24' font-weight='700' fill='%23f1f5f9' text-anchor='middle'%3EDesign2%3C/text%3E%3C/svg%3E" alt="Design 2" loading="lazy" /></div>
+                <div class="gallery-item" data-category="mobile"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%233b82f6' opacity='0.15'/%3E%3Ctext x='200' y='210' font-family='Inter' font-size='24' font-weight='700' fill='%23f1f5f9' text-anchor='middle'%3EMobile2%3C/text%3E%3C/svg%3E" alt="Mobile 2" loading="lazy" /></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="close-lightbox" id="closeLightbox">✕</button>
+        <img id="lightboxImg" src="" alt="Preview" />
+    </div>
+
+    <!-- SERTIFIKAT -->
+    <section id="certificates" class="section-padding">
+        <div class="container">
+            <div class="text-center">
+                <span class="badge">Sertifikat</span>
+                <h2 class="section-title">Sertifikasi & Penghargaan</h2>
+                <p class="section-subtitle">Bukti kompetensi dan pengakuan profesional.</p>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-card glass reveal">
+                    <div class="icon">📜</div>
+                    <h4>Full Stack Web Developer</h4>
+                    <div class="publisher">Dicoding · 2023</div>
+                    <span class="year">2023</span>
+                    <div><a href="#" class="btn btn-sm btn-outline" download>Download PDF</a></div>
+                </div>
+                <div class="cert-card glass reveal">
+                    <div class="icon">🏅</div>
+                    <h4>UI/UX Design Masterclass</h4>
+                    <div class="publisher">Skill Academy · 2022</div>
+                    <span class="year">2022</span>
+                    <div><a href="#" class="btn btn-sm btn-outline" download>Download PDF</a></div>
+                </div>
+                <div class="cert-card glass reveal">
+                    <div class="icon">☁️</div>
+                    <h4>AWS Cloud Practitioner</h4>
+                    <div class="publisher">AWS · 2024</div>
+                    <span class="year">2024</span>
+                    <div><a href="#" class="btn btn-sm btn-outline" download>Download PDF</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG -->
+    <section id="blog" class="section-padding" style="background:var(--bg);">
+        <div class="container">
+            <div class="text-center">
+                <span class="badge">Blog</span>
+                <h2 class="section-title">Artikel Terbaru</h2>
+                <p class="section-subtitle">Tulisan tentang teknologi, pengembangan, dan pengalaman.</p>
+            </div>
+            <div class="blog-grid">
+                <article class="blog-card glass reveal">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='338' viewBox='0 0 600 338'%3E%3Crect width='600' height='338' fill='%231e293b'/%3E%3Ctext x='300' y='175' font-family='Inter' font-size='26' font-weight='700' fill='%23f1f5f9' text-anchor='middle'%3EBlog 1%3C/text%3E%3C/svg%3E" alt="Blog 1" class="thumb" loading="lazy" />
+                    <div class="body">
+                        <span class="tag">React</span>
+                        <h4>Memahami Hooks di React</h4>
+                        <p>Panduan lengkap tentang useState, useEffect, dan custom hooks.</p>
+                        <div class="meta"><span>📅 10 Mei 2025</span><span>⏱ 5 menit</span></div>
+                    </div>
+                </article>
+                <article class="blog-card glass reveal">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='338' viewBox='0 0 600 338'%3E%3Crect width='600' height='338' fill='%231e293b'/%3E%3Ctext x='300' y='175' font-family='Inter' font-size='26' font-weight='700' fill='%23f1f5f9' text-anchor='middle'%3EBlog 2%3C/text%3E%3C/svg%3E" alt="Blog 2" class="thumb" loading="lazy" />
+                    <div class="body">
+                        <span class="tag">CSS</span>
+                        <h4>CSS Grid vs Flexbox</h4>
+                        <p>Kapan menggunakan Grid dan Flexbox dalam layout modern.</p>
+                        <div class="meta"><span>📅 25 April 2025</span><span>⏱ 4 menit</span></div>
+                    </div>
+                </article>
+                <article class="blog-card glass reveal">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='338' viewBox='0 0 600 338'%3E%3Crect width='600' height='338' fill='%231e293b'/%3E%3Ctext x='300' y='175' font-family='Inter' font-size='26' font-weight='700' fill='%23f1f5f9' text-anchor='middle'%3EBlog 3%3C/text%3E%3C/svg%3E" alt="Blog 3" class="thumb" loading="lazy" />
+                    <div class="body">
+                        <span class="tag">Performance</span>
+                        <h4>Optimasi Web dengan Lazy Loading</h4>
+                        <p>Teknik meningkatkan kecepatan website dengan lazy loading.</p>
+                        <div class="meta"><span>📅 12 April 2025</span><span>⏱ 6 menit</span></div>
+                    </div>
+                </article>
+            </div>
+            <div class="text-center" style="margin-top:40px;">
+                <a href="#" class="btn btn-outline">Lihat Semua Artikel</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="section-padding">
+        <div class="container">
+            <div class="text-center">
+                <span class="badge">Testimoni</span>
+                <h2 class="section-title">Apa Kata Klien</h2>
+                <p class="section-subtitle">Umpan balik dari mereka yang telah bekerja sama dengan saya.</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-track" id="testimonialTrack">
+                    <div class="testimonial-slide">
+                        <div class="stars">★★★★★</div>
+                        <blockquote>"Sangat profesional dan komunikatif. Hasil akhir melebihi ekspektasi. Sangat direkomendasikan!"</blockquote>
+                        <div class="author">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%237c3aed' opacity='0.2'/%3E%3Ctext x='50' y='56' font-family='Inter' font-size='32' font-weight='700' fill='%23f1f5f9' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E" alt="Andi" loading="lazy" />
+                            <div><div class="name">Andi Pratama</div><div class="role">CEO, TechStart</div></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="stars">★★★★★</div>
+                        <blockquote>"Pengerjaan cepat, kualitas kode bersih, dan responsif terhadap permintaan perubahan."</blockquote>
+                        <div class="author">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23f59e0b' opacity='0.2'/%3E%3Ctext x='50' y='56' font-family='Inter' font-size='32' font-weight='700' fill='%23f1f5f9' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E" alt="Budi" loading="lazy" />
+                            <div><div class="name">Budi Santoso</div><div class="role">Product Manager, Inovasi.id</div></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="stars">★★★★★</div>
+                        <blockquote>"Desain elegan, performa tinggi, dan memperhatikan aksesibilitas. Luar biasa!"</blockquote>
+                        <div class="author">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230ea5e9' opacity='0.2'/%3E%3Ctext x='50' y='56' font-family='Inter' font-size='32' font-weight='700' fill='%23f1f5f9' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E" alt="Citra" loading="lazy" />
+                            <div><div class="name">Citra Dewi</div><div class="role">Design Lead, CreativeHub</div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-controls">
+                    <button id="prevTestimonial">‹</button>
+                    <button id="nextTestimonial">›</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section-padding" style="background:var(--bg);">
+        <div class="container">
+            <div class="text-center">
+                <span class="badge">FAQ</span>
+                <h2 class="section-title">Pertanyaan Umum</h2>
+                <p class="section-subtitle">Jawaban atas pertanyaan yang sering diajukan.</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item reveal">
+                    <button class="question" aria-expanded="false">Apa saja layanan yang Anda tawarkan? <span class="icon">+</span></button>
+                    <div class="answer">Saya menawarkan pengembangan web (frontend & backend), desain UI/UX, konsultasi teknis, dan optimasi performa website.</div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="question" aria-expanded="false">Berapa lama waktu pengerjaan proyek? <span class="icon">+</span></button>
+                    <div class="answer">Durasi bervariasi tergantung kompleksitas. Rata-rata proyek kecil 2-4 minggu, proyek besar 2-6 bulan.</div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="question" aria-expanded="false">Apakah Anda menerima proyek jangka panjang? <span class="icon">+</span></button>
+                    <div class="answer">Ya, saya terbuka untuk kerjasama jangka panjang baik sebagai kontraktor maupun tim internal.</div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="question" aria-expanded="false">Teknologi apa yang biasa Anda gunakan? <span class="icon">+</span></button>
+                    <div class="answer">React, Next.js, Node.js, Python, Tailwind CSS, PostgreSQL, MongoDB, AWS, Firebase, dll.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="text-center">
+                <span class="badge">Kontak</span>
+                <h2 class="section-title">Hubungi Saya</h2>
+                <p class="section-subtitle">Siap membantu mewujudkan ide Anda. Hubungi melalui form atau media sosial.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info reveal-left">
+                    <div class="item"><div class="icon">📧</div><div class="text"><strong>Email</strong><span>cyrbut404@gmail.com</span></div></div>
+                    <div class="item"><div class="icon">📱</div><div class="text"><strong>WhatsApp</strong><span>+44 7747 285947</span></div></div>
+                    <div class="item"><div class="icon">📍</div><div class="text"><strong>Lokasi</strong><span>Indonesia</span></div></div>
+                    <div class="item"><div class="icon">🕒</div><div class="text"><strong>Jam Operasional</strong><span>Senin — Minggu (janji temu)</span></div></div>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;">
+                        <a href="#" class="btn btn-sm"><span>💬 WhatsApp</span></a>
+                        <a href="#" class="btn btn-sm btn-outline">📧 Email</a>
+                    </div>
+                </div>
+                <form class="contact-form reveal-right" id="contactForm" novalidate>
+                    <div class="form-group">
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" id="name" placeholder="Nama Anda" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="anda@email.com" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subjek</label>
+                        <input type="text" id="subject" placeholder="Subjek pesan" />
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Pesan</label>
+                        <textarea id="message" placeholder="Tulis pesan Anda..." required></textarea>
+                    </div>
+                    <div class="captcha">
+                        <label>Captcha: <span id="captchaText">7 + 3 = ?</span></label>
+                        <input type="text" id="captchaInput" placeholder="Jawaban" />
+                    </div>
+                    <button type="submit" class="btn"><span>Kirim Pesan →</span></button>
+                    <p id="formStatus" style="font-size:0.9rem;color:var(--text-secondary);"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo" style="font-size:1.2rem;">
+                        <svg viewBox="0 0 24 24" width="32" height="32" fill="var(--primary)"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                        Portofolio<span>.</span>
+                    </div>
+                    <p>Membangun solusi digital yang berfokus pada pengalaman pengguna dan performa tinggi.</p>
+                </div>
+                <div><h4>Navigasi</h4><ul><li><a href="#hero">Beranda</a></li><li><a href="#about">Tentang</a></li><li><a href="#skills">Skill</a></li><li><a href="#portfolio">Portofolio</a></li><li><a href="#gallery">Galeri</a></li><li><a href="#blog">Blog</a></li></ul></div>
+                <div><h4>Layanan</h4><ul><li><a href="#">Web Development</a></li><li><a href="#">UI/UX Design</a></li><li><a href="#">Konsultasi</a></li><li><a href="#">Optimasi Performa</a></li></ul></div>
+                <div><h4>Newsletter</h4><p style="color:var(--text-secondary);font-size:0.9rem;">Dapatkan update terbaru.</p><div class="newsletter"><input type="email" placeholder="Email Anda" /><button>Subscribe</button></div></div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Portofolio Premium. Dibuat dengan ❤️</span>
+                <div class="social">
+                    <a href="#">🐙</a><a href="#">🔗</a><a href="#">🐦</a><a href="#">▶️</a>
+                </div>
+                <span>v3.1.0 · Build 2026-07-07</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-top" id="backTop">↑</button>
+
+    <!-- ============================================================
+    JAVASCRIPT PREMIUM
+    ============================================================ -->
+    <script>
+        (function() {
+            'use strict';
+
+            // DOM refs
+            const html = document.documentElement;
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+            const hamburger = document.getElementById('hamburger');
+            const navMobile = document.getElementById('navMobile');
+            const navOverlay = document.getElementById('navOverlay');
+            const backTop = document.getElementById('backTop');
+            const typingEl = document.getElementById('typing-text');
+            const testimonialTrack = document.getElementById('testimonialTrack');
+            const prevBtn = document.getElementById('prevTestimonial');
+            const nextBtn = document.getElementById('nextTestimonial');
+            const contactForm = document.getElementById('contactForm');
+            const formStatus = document.getElementById('formStatus');
+            const searchInput = document.getElementById('searchInput');
+            const searchButton = document.getElementById('searchButton');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const closeLightbox = document.getElementById('closeLightbox');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const filterButtons = document.querySelectorAll('.gallery-filter button');
+            const faqItems = document.querySelectorAll('.faq-item');
+            const captchaText = document.getElementById('captchaText');
+            const captchaInput = document.getElementById('captchaInput');
+
+            // --- Theme ---
+            function getTheme() { return localStorage.getItem('theme') || 'light'; }
+
+            function setTheme(theme) {
+                if (theme === 'dark') {
+                    html.setAttribute('data-theme', 'dark');
+                    themeToggle.textContent = '☀️';
+                    if (themeToggleMobile) themeToggleMobile.textContent = '☀️';
+                } else {
+                    html.removeAttribute('data-theme');
+                    themeToggle.textContent = '🌙';
+                    if (themeToggleMobile) themeToggleMobile.textContent = '🌙';
+                }
+                localStorage.setItem('theme', theme);
+            }
+            setTheme(getTheme());
+            themeToggle.addEventListener('click', function() { setTheme(getTheme() === 'dark' ? 'light' : 'dark'); });
+            if (themeToggleMobile) themeToggleMobile.addEventListener('click', function() { setTheme(getTheme() === 'dark' ?
+                    'light' : 'dark'); });
+
+            // --- Mobile Nav ---
+            let isMenuOpen = false;
+
+            function openMenu() {
+                if (isMenuOpen) return;
+                isMenuOpen = true;
+                navMobile.classList.add('open');
+                navOverlay.classList.add('open');
+                hamburger.classList.add('active');
+                hamburger.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMenu() {
+                if (!isMenuOpen) return;
+                isMenuOpen = false;
+                navMobile.classList.remove('open');
+                navOverlay.classList.remove('open');
+                hamburger.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+            hamburger.addEventListener('click', function(e) { e.stopPropagation();
+                isMenuOpen ? closeMenu() : openMenu(); });
+            navOverlay.addEventListener('click', closeMenu);
+            navMobile.querySelectorAll('a').forEach(function(link) { link.addEventListener('click', closeMenu); });
+            document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && isMenuOpen) closeMenu(); });
+
+            // --- Back to Top ---
+            window.addEventListener('scroll', function() {
+                backTop.classList.toggle('visible', window.scrollY > 400);
+            });
+            backTop.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+            // --- Typing ---
+            const words = ['Web Developer', 'UI/UX Designer', 'Full Stack Engineer', 'Problem Solver'];
+            let wordIndex = 0,
+                charIndex = 0,
+                isDeleting = false,
+                typingTimeout;
+
+            function typeEffect() {
+                const current = words[wordIndex];
+                if (isDeleting) {
+                    typingEl.textContent = current.substring(0, charIndex - 1);
+                    charIndex--;
+                    if (charIndex === 0) { isDeleting = false;
+                        wordIndex = (wordIndex + 1) % words.length;
+                        typingTimeout = setTimeout(typeEffect, 800); return; }
+                    typingTimeout = setTimeout(typeEffect, 40);
+                } else {
+                    typingEl.textContent = current.substring(0, charIndex + 1);
+                    charIndex++;
+                    if (charIndex === current.length) { isDeleting = true;
+                        typingTimeout = setTimeout(typeEffect, 2000); return; }
+                    typingTimeout = setTimeout(typeEffect, 80);
+                }
+            }
+            setTimeout(typeEffect, 400);
+
+            // --- Testimonial Slider ---
+            let slideIndex = 0;
+            const slides = testimonialTrack.querySelectorAll('.testimonial-slide');
+            const totalSlides = slides.length;
+
+            function goToSlide(index) {
+                if (index < 0) index = totalSlides - 1;
+                if (index >= totalSlides) index = 0;
+                slideIndex = index;
+                testimonialTrack.style.transform = 'translateX(-' + (slideIndex * 100) + '%)';
+            }
+            prevBtn.addEventListener('click', function() { goToSlide(slideIndex - 1); });
+            nextBtn.addEventListener('click', function() { goToSlide(slideIndex + 1); });
+            let autoPlay = setInterval(function() { goToSlide(slideIndex + 1); }, 5000);
+            document.querySelector('.testimonial-slider').addEventListener('mouseenter', function() { clearInterval(
+                    autoPlay); });
+            document.querySelector('.testimonial-slider').addEventListener('mouseleave', function() {
+                autoPlay = setInterval(function() { goToSlide(slideIndex + 1); }, 5000);
+            });
+
+            // --- FAQ Accordion ---
+            document.querySelectorAll('.faq-item .question').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const icon = this.querySelector('.icon');
+                    const isOpen = answer.classList.contains('open');
+                    document.querySelectorAll('.faq-item .answer').forEach(function(a) {
+                        if (a !== answer) {
+                            a.classList.remove('open');
+                            a.previousElementSibling.setAttribute('aria-expanded', 'false');
+                            a.previousElementSibling.querySelector('.icon').classList.remove('open');
+                        }
+                    });
+                    if (isOpen) {
+                        answer.classList.remove('open');
+                        this.setAttribute('aria-expanded', 'false');
+                        icon.classList.remove('open');
+                    } else {
+                        answer.classList.add('open');
+                        this.setAttribute('aria-expanded', 'true');
+                        icon.classList.add('open');
+                    }
+                });
+            });
+
+            // --- Contact Form ---
+            const captchaAnswer = 10;
+            captchaText.textContent = '7 + 3 = ?';
+
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const message = document.getElementById('message').value.trim();
+                const captchaVal = parseInt(captchaInput.value.trim());
+
+                if (!name || !email || !message) {
+                    formStatus.textContent = '⚠️ Semua field wajib diisi.';
+                    formStatus.style.color = '#ef4444';
+                    return;
+                }
+                if (!email.includes('@') || !email.includes('.')) {
+                    formStatus.textContent = '⚠️ Masukkan email yang valid.';
+                    formStatus.style.color = '#ef4444';
+                    return;
+                }
+                if (captchaVal !== captchaAnswer) {
+                    formStatus.textContent = '⚠️ Jawaban captcha salah.';
+                    formStatus.style.color = '#ef4444';
+                    return;
+                }
+                formStatus.textContent = '✅ Pesan terkirim! Saya akan segera merespons.';
+                formStatus.style.color = '#22c55e';
+                contactForm.reset();
+                captchaInput.value = '';
+                setTimeout(function() { formStatus.textContent = ''; }, 5000);
+            });
+
+            // --- Scroll Reveal ---
+            const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
+            revealEls.forEach(function(el) { observer.observe(el); });
+
+            // --- Skill Bars ---
+            const skillFills = document.querySelectorAll('.skill-bar .fill');
+            let skillAnimated = false;
+            const skillObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting && !skillAnimated) {
+                        skillAnimated = true;
+                        skillFills.forEach(function(fill) {
+                            const w = parseFloat(fill.getAttribute('data-width'));
+                            setTimeout(function() { fill.style.width = w + '%'; }, 300);
+                        });
+                    }
+                });
+            }, { threshold: 0.3 });
+            const skillSection = document.getElementById('skills');
+            if (skillSection) skillObserver.observe(skillSection);
+
+            // --- Counter Animation ---
+            const statNumbers = document.querySelectorAll('.hero-stats .number');
+            let statsAnimated = false;
+            const statsObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting && !statsAnimated) {
+                        statsAnimated = true;
+                        statNumbers.forEach(function(el) {
+                            const target = parseInt(el.getAttribute('data-count'), 10);
+                            let current = 0;
+                            const step = Math.max(1, Math.floor(target / 50));
+                            const interval = setInterval(function() {
+                                current += step;
+                                if (current >= target) { current = target;
+                                    clearInterval(interval); }
+                                el.textContent = current;
+                            }, 30);
+                        });
+                    }
+                });
+            }, { threshold: 0.3 });
+            const heroSection = document.getElementById('hero');
+            if (heroSection) statsObserver.observe(heroSection);
+
+            // --- Particles ---
+            const canvas = document.getElementById('particles-canvas');
+            if (canvas) {
+                const ctx = canvas.getContext('2d');
+                let particles = [];
+                let w, h;
+
+                function resizeCanvas() {
+                    const rect = canvas.parentElement.getBoundingClientRect();
+                    canvas.width = rect.width;
+                    canvas.height = rect.height;
+                    w = canvas.width;
+                    h = canvas.height;
+                    particles.forEach(function(p) { p.x = Math.random() * w;
+                        p.y = Math.random() * h; });
+                }
+                resizeCanvas();
+                window.addEventListener('resize', resizeCanvas);
+
+                function Particle() {
+                    this.x = Math.random() * w;
+                    this.y = Math.random() * h;
+                    this.size = Math.random() * 2.5 + 0.5;
+                    this.speedX = (Math.random() - 0.5) * 0.5;
+                    this.speedY = (Math.random() - 0.5) * 0.5;
+                    this.opacity = Math.random() * 0.5 + 0.15;
+                }
+                Particle.prototype.update = function() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    if (this.x < 0 || this.x > w) this.speedX *= -1;
+                    if (this.y < 0 || this.y > h) this.speedY *= -1;
+                };
+                Particle.prototype.draw = function() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(167, 139, 250, ' + this.opacity + ')';
+                    ctx.fill();
+                };
+
+                for (let i = 0; i < 100; i++) { particles.push(new Particle()); }
+
+                function animateParticles() {
+                    ctx.clearRect(0, 0, w, h);
+                    particles.forEach(function(p) { p.update();
+                        p.draw(); });
+                    for (let i = 0; i < particles.length; i++) {
+                        for (let j = i + 1; j < particles.length; j++) {
+                            const dx = particles[i].x - particles[j].x;
+                            const dy = particles[i].y - particles[j].y;
+                            const dist = Math.sqrt(dx * dx + dy * dy);
+                            if (dist < 140) {
+                                ctx.beginPath();
+                                ctx.moveTo(particles[i].x, particles[i].y);
+                                ctx.lineTo(particles[j].x, particles[j].y);
+                                ctx.strokeStyle = 'rgba(167, 139, 250, ' + (0.06 * (1 - dist / 140)) + ')';
+                                ctx.lineWidth = 0.8;
+                                ctx.stroke();
+                            }
+                        }
+                    }
+                    requestAnimationFrame(animateParticles);
+                }
+                animateParticles();
+            }
+
+            // --- Lightbox ---
+            galleryItems.forEach(function(item) {
+                item.addEventListener('click', function() {
+                    const img = this.querySelector('img');
+                    lightboxImg.src = img.src;
+                    lightboxImg.alt = img.alt;
+                    lightbox.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            function closeLightboxFn() {
+                lightbox.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+            closeLightbox.addEventListener('click', closeLightboxFn);
+            lightbox.addEventListener('click', function(e) { if (e.target === this) closeLightboxFn(); });
+            document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && lightbox.classList.contains('open'))
+                    closeLightboxFn(); });
+
+            // --- Gallery Filter ---
+            filterButtons.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    filterButtons.forEach(function(b) { b.classList.remove('active'); });
+                    this.classList.add('active');
+                    const filter = this.getAttribute('data-filter');
+                    galleryItems.forEach(function(item) {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = '';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // --- Search Highlight ---
+            function performSearch(query) {
+                document.querySelectorAll('.highlight-search').forEach(function(el) {
+                    const parent = el.parentNode;
+                    parent.replaceChild(el.firstChild, el);
+                    parent.normalize();
+                });
+                if (!query.trim()) return;
+                const regex = new RegExp(query, 'gi');
+                const walker = document.createTreeWalker(
+                    document.body,
+                    NodeFilter.SHOW_TEXT, {
+                        acceptNode: function(node) {
+                            if (node.parentElement.tagName === 'SCRIPT' || node.parentElement.tagName ===
+                                'STYLE')
+                                return NodeFilter.FILTER_REJECT;
+                            if (node.textContent.trim().length === 0) return NodeFilter.FILTER_REJECT;
+                            return NodeFilter.FILTER_ACCEPT;
+                        }
+                    }
+                );
+                let node;
+                while (node = walker.nextNode()) {
+                    if (regex.test(node.textContent)) {
+                        const span = document.createElement('span');
+                        span.className = 'highlight-search';
+                        node.parentNode.replaceChild(span, node);
+                        span.appendChild(node);
+                    }
+                }
+            }
+            searchButton.addEventListener('click', function() { performSearch(searchInput.value); });
+            searchInput.addEventListener('keydown', function(e) { if (e.key === 'Enter') performSearch(searchInput.value); });
+
+            // --- Language toggle (placeholder) ---
+            document.querySelectorAll('#lang-toggle, #lang-toggle-mobile').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    this.textContent = this.textContent === '🌐' ? '🇬🇧' : '🌐';
+                });
+            });
+
+            // --- Active nav link ---
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-menu a, .nav-mobile a');
+            window.addEventListener('scroll', function() {
+                let current = '';
+                sections.forEach(function(section) {
+                    const top = section.offsetTop - 120;
+                    if (window.scrollY >= top) current = section.getAttribute('id');
+                });
+                navLinks.forEach(function(link) {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+                });
+            });
+
+            // === PREMIUM BONUS: Countdown Limited ===
+            const premiumBadge = document.createElement('div');
+            premiumBadge.style.cssText =
+                'position:fixed;bottom:90px;right:28px;z-index:999;background:linear-gradient(135deg,#f59e0b,#d97706);color:#0b1120;padding:10px 18px;border-radius:100px;font-weight:800;font-size:0.75rem;box-shadow:0 4px 20px rgba(245,158,11,0.4);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.2);letter-spacing:0.04em;';
+            premiumBadge.textContent = '⚡ PREMIUM LIMITED';
+            document.body.appendChild(premiumBadge);
+
+        })();
+    </script>
+</body>
+</html>
